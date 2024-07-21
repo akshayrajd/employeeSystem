@@ -1,35 +1,23 @@
-package com.codebase.employeeSystem.model;
+package com.codebase.employeeSystem.dto;
 
-import com.codebase.employeeSystem.dto.EmployeeDto;
-import jakarta.annotation.Nonnull;
-import jakarta.persistence.*;
+import com.codebase.employeeSystem.model.Employee;
 
-@Entity
-@Table(name = "employees")
-public class Employee {
+public class EmployeeDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long empId;
-
-    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "last_name")
     private String lastName;
+    private String emailId;
 
-    @Column(name = "email_id")
-    private  String emailId;
-
-    public Employee() {
+    public EmployeeDto() {
         super();
     }
 
-    public Employee(EmployeeDto employeeDto){
-        this.empId = employeeDto.getEmpId();
-        this.firstName = employeeDto.getFirstName();
-        this.lastName = employeeDto.getLastName();
-        this.emailId = employeeDto.getEmailId();
+    public EmployeeDto(Employee employee){
+        this.empId = employee.getEmpId();
+        this.firstName = employee.getFirstName();
+        this.lastName = employee.getLastName();
+        this.emailId = employee.getEmailId();
     }
 
     public long getEmpId() {
@@ -66,7 +54,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "EmployeeDto{" +
                 "empId=" + empId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
