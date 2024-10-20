@@ -1,10 +1,14 @@
 package com.codebase.employeeSystem.dto;
 
 import com.codebase.employeeSystem.model.Employee;
+import com.codebase.employeeSystem.validation.EmployeeValidator;
+import com.codebase.employeeSystem.validation.ValidEmloyee;
 
 public class EmployeeDto {
 
     private long empId;
+
+    @ValidEmloyee(message = "First name should have atleast 1 character")
     private String firstName;
     private String lastName;
     private String emailId;

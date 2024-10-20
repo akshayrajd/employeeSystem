@@ -63,7 +63,7 @@ public class EmployeeService {
         String message = AppConstants.SOME_ERROR_OCCURRED;
         try{
             logger.info("Deleting employee "+employee);
-            //employeeRepository.delete(employee);
+            employeeRepository.delete(employee);
             message = AppUtils.getAppUtils().getLogString(
                     "Deleted employee ",
                     employee.getFirstName(),
